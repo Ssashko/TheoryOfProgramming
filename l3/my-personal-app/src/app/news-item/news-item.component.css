@@ -1,0 +1,31 @@
+.news-item {
+    width: 200px;
+    background-color: azure;
+    border: 1px solid black;
+}
+.news-item > .image-wrapper
+{
+    height: 150px;
+    text-align: center;
+    background-color: antiquewhite;
+    border: 3px solid black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 5px;
+}
+.news-item > .image-wrapper > img {
+    
+    max-width: 100%;
+    max-height: 100%;
+}
+.news-item > .info-wrapper {
+    padding: 10px;
+}
+.news-item-title {
+    font-family: RobotoMono;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}

@@ -1,0 +1,22 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: aqua;
+    border-top: 3px solid black;
+    margin-top: 20px;
+    font-family: RobotoMono;
+    padding: 20px;
+}
+.footer > .rights {
+    font-size: 1.2rem;
+}
+.footer > .rights::first-letter {
+    color: red;
+}
+.info > p {
+    color: green;
+    font-size: 1.6rem;
+}
+.info > p::first-letter {
+    color: black;
+}

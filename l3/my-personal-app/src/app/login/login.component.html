@@ -1,0 +1,11 @@
+<main>
+    <div class="login-window">
+        <p>Вхід</p>
+        <form  #f="ngForm" (ngSubmit)="submit(f)" novalidate>
+            <input name="login" ngModel type="text" placeholder="логін">
+            <input name="password" ngModel type="password" placeholder="пароль">
+            <input type="submit">
+        </form>
+    </div>
+
+</main>

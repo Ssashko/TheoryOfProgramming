@@ -1,0 +1,12 @@
+<div class="header">
+    <div class="logo-wrapper">
+        <img [src]="imageSrc + 'logo.svg'" alt="logo">
+    </div>
+    
+    <p class="header-name"><a href="/">{{ property.title }}</a></p>
+    <nav>
+        <a *ngFor="let link of property.links" [href]="link.src">
+            {{ link.name }}
+        </a>
+    </nav>
+</div>

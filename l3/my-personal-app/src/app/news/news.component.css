@@ -1,0 +1,8 @@
+.news-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.news-wrapper > * {
+    margin: 10px;
+}
