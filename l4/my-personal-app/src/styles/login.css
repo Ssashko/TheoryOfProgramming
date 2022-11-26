@@ -1,0 +1,45 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.login-window {
+    background-color: aqua;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 20px;
+}
+.login-window > form > * {
+    display: block;
+    margin: 5px;
+}
+.login-window > p {
+    font-family: RobotoMono;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.login-window > p::first-letter {
+    color: red;
+}
+form > input[type="text"], form > input[type="password"] {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 3px;
+    outline: none;
+}
+form > input[type="text"]:hover, form > input[type="password"]:hover {
+    border-color: brown;
+}
+form > input[type="submit"] {
+    color:aliceblue;
+    background-color: black;
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+}
+form > input[type="submit"]:hover {
+
+    background-color: red;
+    cursor: pointer;
+}

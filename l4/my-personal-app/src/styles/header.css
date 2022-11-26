@@ -1,0 +1,60 @@
+.header {
+    background-color: aqua;
+    border-bottom: 5px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.logo-wrapper > img {
+    width: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.logo-wrapper {
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: white;
+    position: relative;
+}
+.header-name {
+    align-self: center;
+}
+.header-name > a {
+    color: black;
+    font-size: 2rem;
+    font-weight: 1000;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    text-decoration: none;
+}
+.header-name::first-letter {
+    color: white;
+}
+
+.header > nav {
+    display: flex;
+    align-self: center;
+
+}
+.header > nav > a {
+    margin: 5px;
+    display: block;
+    border-top: 3px solid wheat;
+    background-color: black;
+    border-radius: 5px;
+    width: 100px;
+    height: 25px;
+    font-size: 1.7rem;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+.header > nav > a:hover {
+
+    border-top: 1px solid wheat;
+    
+}

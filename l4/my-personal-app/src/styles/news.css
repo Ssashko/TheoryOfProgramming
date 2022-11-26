@@ -1,0 +1,21 @@
+.news-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.news-wrapper > * {
+    margin: 10px;
+}
+.hide {
+    display: none !important;
+}
+
+.newsLoader {
+    margin: 0;
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
