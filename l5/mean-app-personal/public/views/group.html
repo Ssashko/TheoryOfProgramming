@@ -1,0 +1,66 @@
+<body>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+   href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <!-- JS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angularroute.min.js"></script>
+    <div class="bg-success p-2 text-dark bg-opacity-10" ng-app="" ng-controller="GroupController">
+        <div class="model-wrapper" ng-class="{'displayNone': modelShow == false}">
+            <div class="model-window" >
+                <h1 class="model-wrapper-title">Change of information about the group</h1>
+                <form role="form" name="groupUpdateForm" novalidate>
+                    <label for="groupChanging">Group</label><br>
+                    <input ng-pattern="regexGroup" name="groupChanging" class="form-control" ng-model="new.group" required>
+                    <label for="specializationChanging">Specialization</label><br>
+                    <input ng-pattern="regexSpec" name="specializationChanging" class="form-control" ng-model="new.specialization" required>
+                    <div class="input-block">
+                        <button type="submit" class="btn-primary" ng-click="update()">Update Group</button>
+                        <button type="submit" class="btn-primary" ng-click="closeWin()">Close</button>
+                    </div>
+                    
+                </form>
+            <span ng-show="groupUpdateForm.groupChanging.$dirty && groupUpdateForm.groupChanging.$invalid" class="errorMessage">incorrect group number</span>
+            <span ng-show="groupUpdateForm.specializationChanging.$dirty && groupUpdateForm.specializationChanging.$invalid" class="errorMessage">incorrect specialization</span>
+            </div>
+        </div>
+    <h2 class="text-center">Groups</h2>
+    <p class="text-center">{{message}}</p>
+    <form role="form" name="groupAddingForm" ng-submit="addGroup()" novalidate>
+        <label for="group-adding">Group</label><br>
+        <input ng-pattern="regexGroup" name="groupAdding" class="form-control" ng-model="group.group" required />
+        <label for="specialization-adding">Specialization</label><br>
+        <input ng-pattern="regexSpec" name="specializationAdding" class="form-control" ng-model="group.specialization" required >
+        <button type="submit" class="btn-primary" >Add Group</button>
+    </form>
+    <table class="table">
+    <thead>
+    <tr>
+    <th>Group</th>
+    <th>Specialization</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <span ng-show="groupAddingForm.groupAdding.$dirty && groupAddingForm.groupAdding.$invalid" class="errorMessage">incorrect group number</span>
+    <span ng-show="groupAddingForm.specializationAdding.$dirty && groupAddingForm.specializationAdding.$invalid" class="errorMessage">incorrect specialization</span>
+    </tr>
+    <tr ng-repeat="group in groups">
+    <td>{{ group.group }}</td>
+    <td>{{ group.specialization }}</td>
+   <td>
+    <button class="btn-info" ng-click="delete(group._id)">Delete</button>
+    <button class="btn-info" ng-click="showModel(group._id,group.group,group.specialization)">Update</button>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <script type="text/javascript">
+    angular.module('GroupController', []);
+    </script>
+    <script
+   src="js/controllers/GroupController.js"></script>
+</body>
+   

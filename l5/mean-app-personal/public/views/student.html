@@ -1,0 +1,92 @@
+<body>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+   href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <!-- JS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angularroute.min.js"></script>
+    <div class="bg-success p-2 text-dark bg-opacity-10" ng-app="" ng-controller="StudentController">
+        <div class="model-wrapper" ng-class="{'displayNone': modelShow == false}">
+            <div class="model-window" >
+                <h1 class="model-wrapper-title">Change of information about the student</h1>
+        
+                <form role="form" name="studentUpdateForm" novalidate>
+                    <label for="nameAdding">Name</label><br>
+                    <input ng-pattern="regexName" name="nameAdding" class="form-control" ng-model="new.name" required />
+
+                    <label for="surnameAdding">Surname</label><br>
+                    <input ng-pattern="regexName" name="surnameAdding" class="form-control" ng-model="new.surname" required />
+
+                    <label for="dateAdding">Birthday</label><br>
+                    <input ng-pattern="regexDate" name="dateAdding" class="form-control" ng-model="new.birthday" required />
+
+                    <label for="groupAdding">Group</label><br>
+                    <input ng-pattern="regexGroup" name="groupAdding" class="form-control" ng-model="new.group" required />
+                    <div class="input-block">
+                        <button type="submit" class="btn-primary" ng-click="update()">Update Group</button>
+                        <button type="submit" class="btn-primary" ng-click="closeWin()">Close</button>
+                    </div>
+                    
+                </form>
+                
+            <span ng-show="studentUpdateForm.nameAdding.$dirty && studentUpdateForm.nameAdding.$invalid" class="errorMessage">incorrect Name</span>
+            <span ng-show="studentUpdateForm.surnameAdding.$dirty && studentUpdateForm.surnameAdding.$invalid" class="errorMessage">incorrect Surname</span>
+            <span ng-show="studentUpdateForm.dateAdding.$dirty && studentUpdateForm.dateAdding.$invalid" class="errorMessage">incorrect group Birthday</span>
+            <span ng-show="studentUpdateForm.groupAdding.$dirty && studentUpdateForm.groupAdding.$invalid" class="errorMessage">incorrect Group</span>
+            </div>
+        </div>
+    <h2 class="text-center">Students</h2>
+    <p class="text-center">{{message}}</p>
+
+    <form role="form" name="studentAddingForm" ng-submit="addStudent()" novalidate>
+        <label for="nameAdding">Name</label><br>
+        <input ng-pattern="regexName" name="nameAdding" class="form-control" ng-model="student.name" required />
+
+        <label for="surnameAdding">Surname</label><br>
+        <input ng-pattern="regexName" name="surnameAdding" class="form-control" ng-model="student.surname" required />
+
+        <label for="dateAdding">Birthday</label><br>
+        <input ng-pattern="regexDate" name="dateAdding" class="form-control" ng-model="student.birthday" required />
+
+        <label for="groupAdding">Group</label><br>
+        <input ng-pattern="regexGroup" name="groupAdding" class="form-control" ng-model="student.group" required />
+        <button type="submit" class="btn-primary">Add Student</button>
+    </form>
+
+    <table class="table">
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Birthday</th>
+    <th>Group</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <span ng-show="studentAddingForm.nameAdding.$dirty && studentAddingForm.nameAdding.$invalid" class="errorMessage">incorrect Name</span>
+        <span ng-show="studentAddingForm.surnameAdding.$dirty && studentAddingForm.surnameAdding.$invalid" class="errorMessage">incorrect Surname</span>
+        <span ng-show="studentAddingForm.dateAdding.$dirty && studentAddingForm.dateAdding.$invalid" class="errorMessage">incorrect group Birthday</span>
+        <span ng-show="studentAddingForm.groupAdding.$dirty && studentAddingForm.groupAdding.$invalid" class="errorMessage">incorrect Group</span>
+    </tr>
+    <tr ng-repeat="student in students">
+    <td>{{ student.name }}</td>
+    <td>{{ student.surname }}</td>
+    <td>{{ student.birthday | date:'yyyy-MM-dd'}}</td>
+    <td>{{ student.group }}</td>
+   <td>
+    <button class="btn-info" ng-click="delete(student._id)">Delete</button>
+    <button class="btn-info" ng-click="showModel(student._id,student.name,student.surname,student.birthday,student.group)">Update</button>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <script type="text/javascript">
+    angular.module('StudentController', []);
+    </script>
+    <script
+   src="js/controllers/StudentController.js"></script>
+</body>
+   

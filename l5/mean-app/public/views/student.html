@@ -1,0 +1,41 @@
+<body>
+    <!-- CSS -->
+    <link rel="stylesheet"
+   href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <!-- JS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angularroute.min.js"></script>
+    <div class="bg-success p-2 text-dark bg-opacity-10" ng-app="" ng-controller="StudentController">
+    <h2 class="text-center">Students</h2>
+    <p class="text-center">{{message}}</p>
+    <table class="table">
+    <thead>
+    <tr>
+    <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>
+    <input class="form-control" ng-model="student.name">
+    </td>
+   <td>
+    <button class="btn-primary" ng-click="addStudent()">Add Student</button>
+    </td>
+    </tr>
+    <tr ng-repeat="student in students">
+    <td>{{ student.name }}</td>
+   <td>
+    <button class="btn-info" ng-click="delete(student._id)">Delete</button>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <script type="text/javascript">
+    angular.module('StudentController', []);
+    </script>
+    <script
+   src="js/controllers/StudentController.js"></script>
+</body>
+   
